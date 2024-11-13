@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredients Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .ingredient { cursor: pointer; }
+        .details { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Ingredient Analysis</h1>
+    {% for ingredient in ingredients %}
+        <div class="ingredient {{ ingredient.color_code }}" onclick="toggleDetails(this)" aria-expanded="false" tabindex="0">
+            <i class="fas {{ 'fa-check-circle' if ingredient.color_code == 'white' else 'fa-exclamation-circle' }}"></i>
+            {{ ingredient.name }}
+        </div>
+        <div class="details">{{ ingredient.explanation }}</div>
+    {% endfor %}
+
+    <script>
+        function toggleDetails(element) {
+            const details = element.nextElementSibling;
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+            element.setAttribute("aria-expanded", details.style.display === 'block' ? "true" : "false");
+        }
+    </script>
+</body>
+</html>

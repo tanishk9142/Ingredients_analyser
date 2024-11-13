@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <title>Ingredient Analyzer</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Ingredient Analyzer</h1>
+        <form id="ingredient-form" class="mt-4" onsubmit="return validateForm()">
+            <div class="form-group">
+                <textarea name="ingredients" id="ingredients" class="form-control" rows="5" placeholder="Enter ingredients..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Analyze</button>
+        </form>
+
+        <!-- Loading Spinner (hidden initially) -->
+        <div id="loading-spinner" class="text-center mt-4" style="display:none;">
+            <div class="spinner-border text-light" role="status">
+                <span class="sr-only">Processing...</span>
+            </div>
+            <p class="text-light mt-2">Analyzing ingredients, please wait...</p>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="mt-4"></div>
+    </div>
+    
+    <script>
+        function validateForm() {
+            const ingredients = document.getElementById("ingredients").value;
+            if (!ingredients.trim()) {
+                alert("Please enter some ingredients.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

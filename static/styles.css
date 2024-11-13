@@ -1,0 +1,62 @@
+body {
+    background-color: #1c1e21; /* Dark background for the body */
+    font-family: 'Roboto', sans-serif;
+    color: #f1f1f1;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+textarea {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+button {
+    font-size: 18px;
+}
+
+#results .card {
+    background-color: #2f3136; /* Darker card background */
+    color: #f1f1f1; /* Lighter text for contrast */
+    border: none; /* Remove default border */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+#results .card:hover {
+    background-color: #40444b; /* Slightly lighter on hover */
+}
+
+#results .details {
+    background-color: #3b3e44;
+    color: #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 5px;
+    display: none;
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+}
+
+.ingredient i {
+    margin-right: 8px;
+}
+
+.ingredient-red { color: red; }
+.ingredient-yellow { color: yellow; }
+.ingredient-purple { color: purple; }
+.ingredient-white { color: white; }
+
+#loading-spinner {
+    display: none; /* Hidden by default */
+    color: #f1f1f1;
+}
+
+#loading-spinner.show {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
